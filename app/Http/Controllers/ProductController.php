@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,6 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         //
+        return view('admin.product.index', ['product'=> Product::all()]);
     }
 
     /**
@@ -25,6 +27,8 @@ class ProductController extends Controller
     public function create()
     {
         //
+        $category = Category::all();
+        return view('admin.product.create', ['category'=>$category]);
     }
 
     /**
@@ -36,6 +40,31 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        request()->validate([
+                'category'=>'required',
+                 'title'=>'required',
+                 'slug'=>'required',
+                 'description'=>'required',
+                 'price'=>'required',
+                 'discount_price'=>'required'
+            ]);
+
+        $product = new Product([
+               'category'=>$request->get('category'),
+               'title'=>$request->get('title'),
+               'slug'=>$request->get('slug'),
+               'description'=>$request->get('description'),
+               'price'=>$request->get('price'),
+              'discount'=>$request->get('discount_price')
+            ]);
+        if($product->save()){
+          return view('admin.product.index', ['product'=>Product::all()])->with('sucess', 'Producted added Sucessfully');
+           
+        }
+
+        return back()->withInput('err', 'Ther is something wrong, Could not be added');
+         
+
     }
 
     /**
@@ -47,6 +76,10 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
+        $cat=Category::all();
+        $product=Product::find($product->id);
+        // return $product;
+        return view('admin.product.edit',['product'=>$product])->with('category', $cat);
     }
 
     /**
@@ -58,6 +91,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+        // return Product::find($product->id); 
     }
 
     /**
@@ -70,7 +104,31 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
-    }
+        request()->validate([
+                 'category'=>'required',
+                 'title'=>'required',
+                 'slug'=>'required',
+                 'description'=>'required',
+                 'price'=>'required',
+                 'discount_price'=>'required'
+            ]);
+
+       $productUpdate=Product::where('id', $product->id)
+                                     ->update([
+                                           
+                                                 'category'=>$request->get('category'),
+                                                  'title'=>$request->get('title'),
+                                                  'slug'=>$request->get('slug'),
+                                                  'description'=>$request->get('description'),
+                                                  'price'=>$request->get('price'),
+                                                 'discount'=>$request->get('discount_price')
+
+                                        ]);
+        if($productUpdate){
+           return view('admin.product.index',['product'=>Product::all()])->with('sucess', 'Updated Sucessfully');
+        }
+      return back()->withInput('err', 'There are something problem, Could not be update');
+}
 
     /**
      * Remove the specified resource from storage.
@@ -81,5 +139,9 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+        if(Product::find($product->id)->delete()){
+            return view('admin.product.index', ['product'=>Product::all()])->with('sucess', 'Deleted Sucessfully');
+        }
+        return view('admin.product.index', ['product'=>Product::all()])->with('err', 'Deleted  Unsucessfully');
     }
 }

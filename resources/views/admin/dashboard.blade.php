@@ -222,7 +222,7 @@
                                 <div id="submenu-3" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{url('admin/product/create')}}">Add Product</a>
+                                            <a class="nav-link" href="{{route('product.create')}}">Add Product</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="pages/chart-chartist.html">All Products</a>
@@ -444,6 +444,8 @@
 
 
                     <!-- content goes here -->
+                    @include('partial.error')
+                    @include('partial.sucess')
                     @yield('content')
 
 
