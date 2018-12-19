@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-<<<<<<< HEAD
+
     return view('admin/dashboard');
 });
 Route::get('admin/category', 'CategoryController@index')->name('category.index');
@@ -22,9 +22,7 @@ Route::get('admin/category/edit/{id}', 'CategoryController@edit')->name('categor
 Route::put('admin/category/update/{id}', 'CategoryController@update')->name('category.update');
 Route::delete('admin/category/delete/{id}', 'CategoryController@destroy')->name('category.destroy');
 Route::resource('admin', 'CategoryController');
-<<<<<<< HEAD
-Route::resource('product', 'ProductController');
-=======
+
 
 
 //Route for frontend
@@ -56,8 +54,6 @@ Route::get('navbar', function()
 });
 
 
->>>>>>> fcb40289ef5827d768d2e9f55770f4dd1ad969b5
-=======
-    return view('welcome');
-});
->>>>>>> db4c825b1e1e9566248a691f77f04eb121a7a1b1
+
+//     return view('welcome');
+// });
