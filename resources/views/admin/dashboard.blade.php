@@ -205,10 +205,10 @@
                                 <div id="submenu-2" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{url('admin/category/create')}}">Add Category <span class="badge badge-secondary">New</span></a>
+                                            <a class="nav-link" href="{{ route('category.create') }}">Add Category <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{url('admin/category/show')}}">All Categories</a>
+                                            <a class="nav-link" href="{{ route('category.index') }}">All Categories</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{('/trash')}}">Trashed Categories</a>

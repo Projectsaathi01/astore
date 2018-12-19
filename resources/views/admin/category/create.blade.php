@@ -1,7 +1,7 @@
-@extends('layouts.admin.dashboard')
+@extends('admin.dashboard')
 @section('content')
 	<div class="card-body">
-        <form action="{{route('category.store')}}" method="POST">
+        <form action="{{ route('category.store') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="title" class="col-form-label">Title</label>

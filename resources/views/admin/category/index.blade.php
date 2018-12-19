@@ -1,4 +1,4 @@
-@extends('layouts.admin.dashboard')
+@extends('admin.dashboard')
 @section('content')
 	<div class="row">
                     <!-- ============================================================== -->

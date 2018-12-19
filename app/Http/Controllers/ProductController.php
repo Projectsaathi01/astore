@@ -44,14 +44,14 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
-        request()->validate([
-                'category'=>'required',
-                 'title'=>'required',
-                 'slug'=>'required',
-                 'description'=>'required',
-                 'price'=>'required',
-                 'discount_price'=>'required'
-            ]);
+        // request()->validate([
+        //         'category'=>'required',
+        //          'title'=>'required',
+        //          'slug'=>'required',
+        //          'description'=>'required',
+        //          'price'=>'required',
+        //          'discount_price'=>'required'
+        //     ]);
 
         $product = new Product([
                'category'=>$request->get('category'),
