@@ -13,6 +13,7 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
+<<<<<<< HEAD
         if(!Schema::hasTable('categories')){
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
@@ -22,6 +23,12 @@ class CreateCategoriesTable extends Migration
             $table->timestamps();
         });
         }
+=======
+        Schema::create('categories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+        });
+>>>>>>> db4c825b1e1e9566248a691f77f04eb121a7a1b1
     }
 
     /**

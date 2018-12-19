@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     //
+<<<<<<< HEAD
 
 
     protected $fillable=[
@@ -21,4 +22,6 @@ class Product extends Model
     public function product(){
      	return $this->belongsTo('App\Category');
      }
+=======
+>>>>>>> db4c825b1e1e9566248a691f77f04eb121a7a1b1
 }

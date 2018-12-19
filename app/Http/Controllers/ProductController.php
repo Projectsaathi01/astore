@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+<<<<<<< HEAD
 use App\Category;
+=======
+>>>>>>> db4c825b1e1e9566248a691f77f04eb121a7a1b1
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,7 +19,10 @@ class ProductController extends Controller
     public function index()
     {
         //
+<<<<<<< HEAD
         return view('admin.product.index', ['product'=> Product::all()]);
+=======
+>>>>>>> db4c825b1e1e9566248a691f77f04eb121a7a1b1
     }
 
     /**
@@ -27,8 +33,11 @@ class ProductController extends Controller
     public function create()
     {
         //
+<<<<<<< HEAD
         $category = Category::all();
         return view('admin.product.create', ['category'=>$category]);
+=======
+>>>>>>> db4c825b1e1e9566248a691f77f04eb121a7a1b1
     }
 
     /**
@@ -40,6 +49,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+<<<<<<< HEAD
         request()->validate([
                 'category'=>'required',
                  'title'=>'required',
@@ -65,6 +75,8 @@ class ProductController extends Controller
         return back()->withInput('err', 'Ther is something wrong, Could not be added');
          
 
+=======
+>>>>>>> db4c825b1e1e9566248a691f77f04eb121a7a1b1
     }
 
     /**
@@ -76,10 +88,13 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
+<<<<<<< HEAD
         $cat=Category::all();
         $product=Product::find($product->id);
         // return $product;
         return view('admin.product.edit',['product'=>$product])->with('category', $cat);
+=======
+>>>>>>> db4c825b1e1e9566248a691f77f04eb121a7a1b1
     }
 
     /**
@@ -91,7 +106,10 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+<<<<<<< HEAD
         // return Product::find($product->id); 
+=======
+>>>>>>> db4c825b1e1e9566248a691f77f04eb121a7a1b1
     }
 
     /**
@@ -104,6 +122,7 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+<<<<<<< HEAD
         request()->validate([
                  'category'=>'required',
                  'title'=>'required',
@@ -129,6 +148,9 @@ class ProductController extends Controller
         }
       return back()->withInput('err', 'There are something problem, Could not be update');
 }
+=======
+    }
+>>>>>>> db4c825b1e1e9566248a691f77f04eb121a7a1b1
 
     /**
      * Remove the specified resource from storage.
@@ -139,9 +161,12 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+<<<<<<< HEAD
         if(Product::find($product->id)->delete()){
             return view('admin.product.index', ['product'=>Product::all()])->with('sucess', 'Deleted Sucessfully');
         }
         return view('admin.product.index', ['product'=>Product::all()])->with('err', 'Deleted  Unsucessfully');
+=======
+>>>>>>> db4c825b1e1e9566248a691f77f04eb121a7a1b1
     }
 }

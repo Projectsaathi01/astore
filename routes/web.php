@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+<<<<<<< HEAD
     return view('admin/dashboard');
 });
 Route::get('admin/category', 'CategoryController@index')->name('category.index');
@@ -56,3 +57,7 @@ Route::get('navbar', function()
 
 
 >>>>>>> fcb40289ef5827d768d2e9f55770f4dd1ad969b5
+=======
+    return view('welcome');
+});
+>>>>>>> db4c825b1e1e9566248a691f77f04eb121a7a1b1
