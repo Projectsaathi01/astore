@@ -15,6 +15,39 @@ Route::get('/', function () {
     return view('admin/dashboard');
 });
 Route::resource('admin', 'CategoryController');
+
 Route::resource('product', 'ProductController');
 Route::get('/trash', 'TrashController@index');
 Route::resource('trash', 'TrashController');
+
+
+
+//Route for frontend
+
+Route::get('home',function()
+{
+ return view('pages.index');
+});
+Route::get('product', function(){
+	return view('pages.product');
+});
+Route::get('shopping', function(){
+	return view('pages.shopping');
+});
+Route::get('blog', function(){
+	return view('pages.blog');
+});
+
+Route::get('about', function(){
+	return view('pages.about');
+});
+Route::get('content', function(){
+	return view('pages.content');
+});
+
+Route::get('navbar', function()
+{
+ return view('category.dashboard.master');
+});
+
+
