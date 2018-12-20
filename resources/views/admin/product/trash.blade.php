@@ -33,17 +33,16 @@
                                                 <td>{{$product->description}}</td>
                                                 <td>{{$product->price}}</td>
                                                 <td>{{$product->discount}}</td>
-                                                <td><a href="{{route('product.show', ['product'=>$product->id])}}">Edit</a></td>
-                                                <td><a href="#" onclick="trash()">Trash</a>
+                                                <td><a href="#" onclick="restore()">Restore
 
-                                                     <form id="trash-form" action="{{route('trash.store',['id'=>$product->id])}}" method="post" hidden="hidden" >
+
+                                                    <form id="restore-form" action="{{route('trash.update',$product->id)}}" method="post" hidden="hidden">
+                                                      @method('patch')
                                                       @csrf
                                                       <button type="submit"></button>
-                                                      </form>
+                                                      </form> 
 
-
-
-                                                </td>
+                                                </a></td>
                                                 <td>
                                                     <a class="dropdown-item" href="#" onclick="helpDelete()">
                                                     Delete
@@ -69,7 +68,6 @@
                     <!-- ============================================================== -->
                 </div>
 
-
                 <script type="text/javascript">
                     function helpDelete(){
                         if(confirm("Are you want to delete")){
@@ -77,9 +75,9 @@
                         document.getElementById('delete-form').submit();
                        }
                     }
-                    function trash(){
+                    function restore(){
                         event.preventDefault();
-                        document.getElementById('trash-form').submit();
+                        document.getElementById('restore-form').submit();
                     }
                 </script>
 @endsection

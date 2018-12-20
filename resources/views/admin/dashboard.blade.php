@@ -211,7 +211,7 @@
                                             <a class="nav-link" href="{{url('admin/category/show')}}">All Categories</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/carousel.html">Trashed Categories</a>
+                                            <a class="nav-link" href="{{('/trash')}}">Trashed Categories</a>
                                         </li>
                                         
                                     </ul>
@@ -225,10 +225,10 @@
                                             <a class="nav-link" href="{{route('product.create')}}">Add Product</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/chart-chartist.html">All Products</a>
+                                            <a class="nav-link" href="{{route('product.index')}}">All Products</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/chart-charts.html">Trashed Categories</a>
+                                            <a class="nav-link" href="{{url('/trash')}}">Trashed Categories</a>
                                         </li>
                                         
                                     </ul>
